@@ -1,6 +1,6 @@
 campus-management web application
 # what the hell?
--it's a web app for campus student management that offer a web service soap to another system (campus guard). 
+-it's a sample web app for campus student management that offer some services (soap web service) to another system (campus guard). 
 
 -campus students management web application
 using J2EE tech
