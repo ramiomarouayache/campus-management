@@ -1,4 +1,3 @@
-campus-management web application
 # what the hell?
 -it's a simple web app for campus student management that offer some services (soap web service) to another system (campus guard). 
 
@@ -10,12 +9,14 @@ using J2EE tech
 -hibernate plugin (hibernate ORM framework)
 
 -tomact server v6.0
+
+-postgres
 # Installation
 1-create dynamic project in eclipse J2EE
 
 2-create and setup servlet 2.5 with project folder
 
-3-install and setup tomcat server
+3-install and setup tomcat server 6.0
 
 4-configure hibernate with your postgres database uri,port
 
