@@ -1,29 +1,33 @@
 package model;
 
+import java.io.Serializable;
 
-//@Entity
-//@Table(name = "garde")
-public class Garde {
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
-	private String id;
+@Entity
+@Table(name="gestionnare")
+public class Gestionnare implements Serializable{
+	private static final long serialVersionUID = 1L;
+	@Id
+	private int id;
+	@Column(name = "name")
 	private String name;
-	private String prenom;
+	@Column(name = "email")
 	private String email;
+	@Column(name = "password")
 	private String password;
-	private String faculté_id;
 
 	// Getter Methods
 
-	public String getId() {
+	public int getId() {
 		return id;
 	}
 
 	public String getName() {
 		return name;
-	}
-
-	public String getPrenom() {
-		return prenom;
 	}
 
 	public String getEmail() {
@@ -34,22 +38,14 @@ public class Garde {
 		return password;
 	}
 
-	public String getFaculté_id() {
-		return faculté_id;
-	}
-
 	// Setter Methods
 
-	public void setId(String id) {
+	public void setId(int id) {
 		this.id = id;
 	}
 
 	public void setName(String name) {
 		this.name = name;
-	}
-
-	public void setPrenom(String prenom) {
-		this.prenom = prenom;
 	}
 
 	public void setEmail(String email) {
@@ -58,10 +54,6 @@ public class Garde {
 
 	public void setPassword(String password) {
 		this.password = password;
-	}
-
-	public void setFaculté_id(String faculté_id) {
-		this.faculté_id = faculté_id;
 	}
 
 }

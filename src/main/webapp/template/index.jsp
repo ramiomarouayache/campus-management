@@ -19,7 +19,7 @@
 <body class="sb-nav-fixed">
     <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
         <!-- Navbar Brand-->
-        <a class="navbar-brand ps-3" href="index.jsp">Admin dashboard</a>
+        <a class="navbar-brand ps-3" href="/campus_mangement/search">Admin dashboard</a>
         <!-- Sidebar Toggle-->
         <button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0" id="sidebarToggle" href="#!"><i
                 class="fas fa-bars"></i></button>
@@ -43,7 +43,7 @@
                     <li>
                         <hr class="dropdown-divider" />
                     </li>
-                    <li><a class="dropdown-item" href="#!">Logout</a></li>
+                    <li><a class="dropdown-item" href="/campus_mangement/logout">Logout</a></li>
                 </ul>
             </li>
         </ul>
@@ -54,7 +54,7 @@
                 <div class="sb-sidenav-menu">
                     <div class="nav">
                         <div class="sb-sidenav-menu-heading">Core</div>
-                        <a class="nav-link" href="index.jsp">
+                        <a class="nav-link" href="/campus_mangement/search">
                             <div class="sb-nav-link-icon"><i class="fa-regular fa-user"></i></div>
                             Chercher un etudiant
                         </a>
@@ -68,9 +68,8 @@
                         <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne"
                             data-bs-parent="#sidenavAccordion">
                             <nav class="sb-sidenav-menu-nested nav">
-                                <a class="nav-link" href="layout-static.jsp">Liste des étudiants</a>
-                                <a class="nav-link" href="/campus_mangement/template/add_etudiant.jsp">ajouter un étudiant</a>
-                                <a class="nav-link" href="layout-sidenav-light.jsp">Supprimer un étudiant</a>
+                                <a class="nav-link" href="/campus_mangement/list_students">Liste des etudiants</a>
+								<a class="nav-link" href="/campus_mangement/add_student">ajouter un etudiant</a>
                             </nav>
                         </div>
                     </div>
@@ -84,13 +83,13 @@
         <div id="layoutSidenav_content">
             <main>
                 <div class="container-fluid px-4">
-                    <h1 class="mt-4"><i class="fa-regular fa-user-check"></i> Chercher a un étudiant :</h1>
+                    <h1 class="mt-4"><i class="fa-regular fa-user-check"></i> Chercher a un etudiant :</h1>
                     <ol class="breadcrumb mb-4 text-muted">
                         <small> chercher a un etudiant soit par<br>1-matricule<br>2-par
                             nom d'etudiant<br>3-par nom et prenom d'etudiant
                         </small>
                     </ol>
-                    <form action="/campus_mangement/search" method="post" class="form-control" id="form1">
+                    <form action="/campus_mangement/result" method="post" class="form-control" id="form1">
                         <div class="mb-3">
                             <label for="matricule" class="form-label">Matricule
                                 d'etudiant :</label> <input type="text" class="form-control" id="matricule"
@@ -133,10 +132,10 @@
 	src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
 	integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
 	crossorigin="anonymous"></script>
-    <script src="/campus_mangement/template/js/scripts.js"></script>
-    <script type="text/javascript"src="/campus_mangement/template/js/utilScript.js"></script>
+    <script src="template/js/scripts.js"></script>
+    <script type="text/javascript"src="template/js/utilScript.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/simple-datatables@latest" crossorigin="anonymous"></script>
-    <script src="js/datatables-simple-demo.js"></script>
+    <script src="template/js/datatables-simple-demo.js"></script>
 </body>
 
 </html>

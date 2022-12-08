@@ -11,7 +11,7 @@
 	content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 <meta name="description" content="" />
 <meta name="author" content="" />
-<title>Dashboard - Admin</title>
+<title>Etudiant</title>
 <link
 	href="https://cdn.jsdelivr.net/npm/simple-datatables@latest/dist/style.css"
 	rel="stylesheet" />
@@ -28,7 +28,7 @@
 <body class="sb-nav-fixed">
 	<nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
 		<!-- Navbar Brand-->
-		<a class="navbar-brand ps-3" href="index.jsp">Admin dashboard</a>
+		<a class="navbar-brand ps-3" href="/campus_mangement/search">Admin dashboard</a>
 		<!-- Sidebar Toggle-->
 		<button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0"
 			id="sidebarToggle" href="#!">
@@ -69,7 +69,7 @@
 				<div class="sb-sidenav-menu">
 					<div class="nav">
 						<div class="sb-sidenav-menu-heading">Core</div>
-						<a class="nav-link" href="index.jsp">
+						<a class="nav-link" href="/campus_mangement/search">
 							<div class="sb-nav-link-icon">
 								<i class="fa-regular fa-user"></i>
 							</div> Chercher un etudiant
@@ -89,7 +89,7 @@
 							aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
 							<nav class="sb-sidenav-menu-nested nav">
 								<a class="nav-link" href="/campus_mangement/list_students">Liste des etudiants</a>
-                                <a class="nav-link" href="/campus_mangement/add_student">ajouter un etudiant</a>
+								<a class="nav-link" href="/campus_mangement/add_student">ajouter un etudiant</a>
 							</nav>
 						</div>
 					</div>
@@ -103,15 +103,15 @@
 		<div id="layoutSidenav_content">
 			<main>
 			<h1 class="mt-4">
-						<i class="fa-regular fa-user-check"></i> Resultats de votre recherche : :
+						<i class="fa-regular fa-user-check"></i> Liste des etudiants :
 					</h1>
 					<ol class="breadcrumb mb-4 text-muted">
-						<small> Ces resultats sont consultable uniquement , si vous rencontrez un probleme contacter-nous</small>
+						<small> vous pouvez modifier ou supprimer un etudiant </small>
 					</ol>
 				<div class="container-fluid px-4">
 					<div class="card mb-4">
 						<div class="card-header">
-							<i class="fas fa-table me-1"></i>Résultat de la recherche :
+							<i class="fas fa-table me-1"></i>La liste des etudiants :
 						</div>
 						<div class="card-body">
 							<table id="datatablesSimple">
@@ -133,6 +133,8 @@
 										<th>Niveau</th>
 										<th>Foramtion</th>
 										<th>Derniere inscription</th>
+										<th></th>
+										<th></th>
 									</tr>
 								</thead>
 								<tbody>
@@ -155,6 +157,8 @@
 											<td><c:out value="${etudiant.niveau}" /></td>
 											<td><c:out value="${etudiant.formation}" /></td>
 											<td><c:out value="${etudiant.derniere_inscription}" /></td>
+											<td><a href="/campus_mangement/modifier?matricule=${etudiant.matricule}">modifier</a></td>
+											<td><a href='/campus_mangement/supprimer/${data}'>Supprimer</a></td>
 										</tr>
 										<c:set var="counter" scope="session" value="${counter+1}" />
 									</c:forEach>
@@ -188,7 +192,7 @@
 		src="/campus_mangement/template/js/utilScript.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/simple-datatables@latest"
 		crossorigin="anonymous"></script>
-	<script src="/campus_mangement/template/js/datatables-simple-demo.js"></script>
+	<script src="template/js/datatables-simple-demo.js"></script>
 </body>
 
 </html>

@@ -11,7 +11,7 @@
 	content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 <meta name="description" content="" />
 <meta name="author" content="" />
-<title>Dashboard - Admin</title>
+<title>add student</title>
 <link
 	href="https://cdn.jsdelivr.net/npm/simple-datatables@latest/dist/style.css"
 	rel="stylesheet" />
@@ -89,7 +89,7 @@
 							aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
 							<nav class="sb-sidenav-menu-nested nav">
 								<a class="nav-link" href="/campus_mangement/list_students">Liste des etudiants</a>
-                                <a class="nav-link" href="/campus_mangement/add_student">ajouter un etudiant</a>
+								<a class="nav-link" href="/campus_mangement/add_student">ajouter un etudiant</a>
 							</nav>
 						</div>
 					</div>
@@ -102,66 +102,123 @@
 		</div>
 		<div id="layoutSidenav_content">
 			<main>
-			<h1 class="mt-4">
-						<i class="fa-regular fa-user-check"></i> Resultats de votre recherche : :
+				<div class="container-fluid px-4">
+					<h1 class="mt-4">
+						<i class="fa-regular fa-user-check"></i> Ajouter un etudiant :
 					</h1>
 					<ol class="breadcrumb mb-4 text-muted">
-						<small> Ces resultats sont consultable uniquement , si vous rencontrez un probleme contacter-nous</small>
+						<small> remplir les information d'etudiant qui vous pouvez
+							ajouter </small>
 					</ol>
-				<div class="container-fluid px-4">
-					<div class="card mb-4">
-						<div class="card-header">
-							<i class="fas fa-table me-1"></i>Résultat de la recherche :
+					<form action="/campus_mangement/post_student" method="post"
+						class="form-control" id="form1">
+						<c:if test="${empty info}">
+							<div
+								class="toast align-items-center text-white bg-primary border-0"
+								role="alert" aria-live="assertive" aria-atomic="true">
+								<div class="d-flex">
+									<div class="toast-body">
+										<c:out value="${info}" />
+									</div>
+									<button type="button"
+										class="btn-close btn-close-white me-2 m-auto"
+										data-bs-dismiss="toast" aria-label="Close"></button>
+								</div>
+							</div>
+						</c:if>
+						<div class="mb-3">
+							<label for="matricule" class="form-label">Matricule
+								d'etudiant :</label> <input type="text" class="form-control"
+								id="matricule" placeholder="1818*******"
+								aria-describedby="MatriculeHelp" name="matricule">
+							<div id="MatriculeHelp" class="form-text">Entrer le 10
+								nombre entre dans la carte d'etudiant</div>
 						</div>
-						<div class="card-body">
-							<table id="datatablesSimple">
-								<thead>
-									<tr>
-										<th></th>
-										<th>Matricule</th>
-										<th>Nom</th>
-										<th>Prenom</th>
-										<th>Email</th>
-										<th>Sexe</th>
-										<th>Date de naissance</th>
-										<th>Prenom de pere</th>
-										<th>Nom de mere</th>
-										<th>Prenom de mere</th>
-										<th>Faculte id</th>
-										<th>Departement id</th>
-										<th>Specialite id</th>
-										<th>Niveau</th>
-										<th>Foramtion</th>
-										<th>Derniere inscription</th>
-									</tr>
-								</thead>
-								<tbody>
-									<c:set var="counter" scope="session" value="${0}" />
-									<c:forEach items="${data}" var="etudiant">
-										<tr>
-											<td><c:out value="${counter+1}" /></td>
-											<td><c:out value="${etudiant.matricule}" /></td>
-											<td><c:out value="${etudiant.nom}" /></td>
-											<td><c:out value="${etudiant.prenom}" /></td>
-											<td><c:out value="${etudiant.email}" /></td>
-											<td><c:out value="${etudiant.sexe}" /></td>
-											<td><c:out value="${etudiant.birth_date}" /></td>
-											<td><c:out value="${etudiant.prenom_pere}" /></td>
-											<td><c:out value="${etudiant.nom_mere}" /></td>
-											<td><c:out value="${etudiant.prenom_mere}" /></td>
-											<td><c:out value="${etudiant.faculté_id}" /></td>
-											<td><c:out value="${etudiant.departement_id}" /></td>
-											<td><c:out value="${etudiant.specialite_id}" /></td>
-											<td><c:out value="${etudiant.niveau}" /></td>
-											<td><c:out value="${etudiant.formation}" /></td>
-											<td><c:out value="${etudiant.derniere_inscription}" /></td>
-										</tr>
-										<c:set var="counter" scope="session" value="${counter+1}" />
-									</c:forEach>
-								</tbody>
-							</table>
+						<div class="row g-3 mb-4">
+							<div class="col">
+								<label for="nom" class="form-label">Nom d'etudiant :</label> <input
+									type="text" class="form-control" placeholder="Nom" name="nom">
+							</div>
+							<div class="col">
+								<label for="prenom" class="form-label">Prenom d'etudiant
+									:</label> <input type="text" class="form-control" placeholder="Prenom"
+									name="prenom">
+							</div>
 						</div>
-					</div>
+						<div class="row g-3 mb-4">
+							<div class="col">
+								<label for="email" class="form-label">Email :</label> <input
+									type="email" class="form-control"
+									placeholder="Nom.prenom@gmail.com" name="email">
+							</div>
+							<div class="col">
+								<label for="sexe" class="form-label">Sexe :</label> <input
+									type="text" class="form-control" placeholder="sexe" name="sexe">
+							</div>
+							<div class="col">
+								<label for="birth_date" class="form-label">date de
+									naissance :</label> <input type="date" class="form-control"
+									placeholder="26-08-2000" name="birth_date">
+							</div>
+						</div>
+						<div class="row g-3 mb-4">
+							<div class="col">
+								<label for="prenom_pere" class="form-label">prenom de
+									pere :</label> <input type="text" class="form-control"
+									placeholder="prenom de pere" name="prenom_pere">
+							</div>
+							<div class="col">
+								<label for="nom_mere" class="form-label">nom de mere :</label> <input
+									type="text" class="form-control" placeholder="nom de mere"
+									name="nom_mere">
+							</div>
+							<div class="col">
+								<label for="prenom_mere" class="form-label">prenom_mere
+									:</label> <input type="text" class="form-control"
+									placeholder="prenom de mere" name="prenom_mere">
+							</div>
+						</div>
+						<div class="row g-3 mb-4">
+							<div class="col">
+								<label for="faculté_id" class="form-label">faculte id :</label>
+								<input type="number" class="form-control"
+									placeholder="faculte id" name="faculté_id">
+							</div>
+							<div class="col">
+								<label for="departement_id" class="form-label">departement
+									id :</label> <input type="number" class="form-control"
+									placeholder="departement id" name="departement_id">
+							</div>
+							<div class="col">
+								<label for="specialite_id" class="form-label">specialite
+									id :</label> <input type="number" class="form-control"
+									placeholder="specialite id" name="specialite_id">
+							</div>
+						</div>
+						<div class="row g-3 mb-4">
+							<div class="col">
+								<label for="niveau" class="form-label">niveau :</label> <input
+									type="text" class="form-control" placeholder="niveau"
+									name="niveau">
+							</div>
+							<div class="col">
+								<label for="formation" class="form-label">formation :</label> <input
+									type="text" class="form-control" placeholder="formation"
+									name="formation">
+							</div>
+							<div class="col">
+								<label for="derniere_inscription" class="form-label">derniere_inscription
+									:</label> <input type="number" class="form-control" placeholder="2022"
+									name="derniere_inscription">
+							</div>
+						</div>
+						<button class="btn btn-primary" type="submit">
+							<span class='spinner-border spinner-border-sm' role='status'
+								aria-hidden='true' id='spinner' style='display: none;'></span>
+							Ajouter
+						</button>
+						<hr>
+					</form>
 				</div>
 			</main>
 			<footer class="py-4 bg-light mt-auto">
@@ -188,7 +245,7 @@
 		src="/campus_mangement/template/js/utilScript.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/simple-datatables@latest"
 		crossorigin="anonymous"></script>
-	<script src="/campus_mangement/template/js/datatables-simple-demo.js"></script>
+	<script src="js/datatables-simple-demo.js"></script>
 </body>
 
 </html>

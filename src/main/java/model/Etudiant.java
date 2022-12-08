@@ -1,13 +1,10 @@
 package model;
 
 import javax.persistence.Column;
-import javax.persistence.GenerationType;
-import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.persistence.Entity;
 import java.io.Serializable;
-import java.math.BigInteger;
 import java.sql.Date;
 
 @Entity
@@ -16,7 +13,7 @@ public class Etudiant implements Serializable{
 	
 	private static final long serialVersionUID = 1L;
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	//@GeneratedValue(strategy = GenerationType.)
 	private Long matricule;
 	@Column(name = "nom")
 	private String nom;
@@ -35,13 +32,13 @@ public class Etudiant implements Serializable{
 	@Column(name = "prenom_mere")
 	private String prenom_mere;
 	@Column(name = "derniere_inscription")
-	private String derniere_inscription;
+	private int derniere_inscription;
 	@Column(name = "faculté_id")
-	private String faculté_id;
+	private int faculté_id;
 	@Column(name = "departement_id")
-	private String departement_id;
-	@Column(name = "specialité_id")
-	private String specialité_id;
+	private int departement_id;
+	@Column(name = "specialite_id")
+	private int specialite_id;
 	@Column(name = "niveau")
 	private String niveau;
 	@Column(name = "formation")
@@ -85,20 +82,20 @@ public class Etudiant implements Serializable{
 		return prenom_mere;
 	}
 
-	public String getDerniere_inscription() {
+	public int getDerniere_inscription() {
 		return derniere_inscription;
 	}
 
-	public String getFaculté_id() {
+	public int getFaculté_id() {
 		return faculté_id;
 	}
 
-	public String getDepartement_id() {
+	public int getDepartement_id() {
 		return departement_id;
 	}
 
-	public String getSpecialité_id() {
-		return specialité_id;
+	public int getSpecialite_id() {
+		return specialite_id;
 	}
 
 	public String getNiveau() {
@@ -131,8 +128,8 @@ public class Etudiant implements Serializable{
 		this.sexe = sexe;
 	}
 
-	public void setBirth_date(Date birth_date) {
-		this.birth_date = birth_date;
+	public void setBirth_date(Date date) {
+		this.birth_date = date;
 	}
 
 	public void setPrenom_pere(String prenom_pere) {
@@ -147,20 +144,20 @@ public class Etudiant implements Serializable{
 		this.prenom_mere = prenom_mere;
 	}
 
-	public void setDerniere_inscription(String derniere_inscription) {
+	public void setDerniere_inscription(int derniere_inscription) {
 		this.derniere_inscription = derniere_inscription;
 	}
 
-	public void setFaculté_id(String faculté_id) {
-		this.faculté_id = faculté_id;
+	public void setFaculté_id(int i) {
+		this.faculté_id = i;
 	}
 
-	public void setDepartement_id(String departement_id) {
+	public void setDepartement_id(int departement_id) {
 		this.departement_id = departement_id;
 	}
 
-	public void setSpecialité_id(String specialité_id) {
-		this.specialité_id = specialité_id;
+	public void setSpecialite_id(int specialite_id) {
+		this.specialite_id = specialite_id;
 	}
 
 	public void setNiveau(String niveau) {

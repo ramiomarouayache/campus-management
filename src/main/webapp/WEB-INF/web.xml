@@ -1,22 +1,45 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xmlns="http://java.sun.com/xml/ns/javaee"
-	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
-	id="WebApp_ID" version="2.5">
-	<display-name>campus_mangement</display-name>
-	<welcome-file-list>
-		<welcome-file>index.jsp</welcome-file>
-	</welcome-file-list>
-	<servlet>
-		<servlet-name>Servlet</servlet-name>
-		<servlet-class>controller.Servlet</servlet-class>
-	</servlet>
-	<servlet-mapping>
-		<servlet-name>Servlet</servlet-name>
-		<url-pattern>/search</url-pattern>
-	</servlet-mapping>
-	<error-page>
-		<error-code>500</error-code>
-		<location>/template/500.jsp</location>
-	</error-page>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" id="WebApp_ID" version="2.5">
+  <display-name>campus_mangement</display-name>
+  <welcome-file-list>
+    <welcome-file>/template/login.jsp</welcome-file>
+    <welcome-file>/template/index.jsp</welcome-file>
+  </welcome-file-list>
+  <servlet>
+    <servlet-name>AuthServlet</servlet-name>
+    <servlet-class>controller.AuthServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>GestionServlet</servlet-name>
+    <servlet-class>controller.GestionServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>MainServlet</servlet-name>
+    <servlet-class>controller.MainServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>SearchServlet</servlet-name>
+    <servlet-class>controller.SearchServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>AuthServlet</servlet-name>
+    <url-pattern>/</url-pattern>
+    <url-pattern>/login</url-pattern>
+    <url-pattern>/logout</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>GestionServlet</servlet-name>
+    <url-pattern>/list_students</url-pattern>
+    <url-pattern>/add_student</url-pattern>
+    <url-pattern>/modifier</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>SearchServlet</servlet-name>
+    <url-pattern>/search</url-pattern>
+    <url-pattern>/result</url-pattern>
+  </servlet-mapping>
+  <error-page>
+    <error-code>500</error-code>
+    <location>/template/500.jsp</location>
+  </error-page>
 </web-app>

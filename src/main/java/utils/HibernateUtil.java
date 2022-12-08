@@ -10,6 +10,7 @@ import org.hibernate.cfg.Environment;
 import org.hibernate.service.ServiceRegistry;
 
 import model.Etudiant;
+import model.Gestionnare;
 
 /**
  * Java based configuration
@@ -40,6 +41,7 @@ public class HibernateUtil {
 
                 configuration.setProperties(settings);
                 configuration.addAnnotatedClass(Etudiant.class);
+                configuration.addAnnotatedClass(Gestionnare.class);
 
                 ServiceRegistry serviceRegistry = new StandardServiceRegistryBuilder()
                     .applySettings(configuration.getProperties()).build();
