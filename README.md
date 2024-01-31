@@ -1,4 +1,4 @@
-# (Task) University student management system 👨‍🎓
+# University student management system 👨‍🎓
 -Simple web app for campus student management that offer some web services (soap) to the campus guard system. 
 -campus students management web application using J2EE tech
 
